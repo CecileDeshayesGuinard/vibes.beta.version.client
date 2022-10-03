@@ -1,0 +1,190 @@
+/*
+ ██████╗ ███████╗███╗   ██╗███████╗██████╗  █████╗ ██╗     
+██╔════╝ ██╔════╝████╗  ██║██╔════╝██╔══██╗██╔══██╗██║     
+██║  ███╗█████╗  ██╔██╗ ██║█████╗  ██████╔╝███████║██║     
+██║   ██║██╔══╝  ██║╚██╗██║██╔══╝  ██╔══██╗██╔══██║██║     
+╚██████╔╝███████╗██║ ╚████║███████╗██║  ██║██║  ██║███████╗
+ ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝                                                      
+*/
+
+/*
+╔═╗╔═╗╔╗╔╔╦╗   ┬   ╦╔═╔═╗╦ ╦╔═╗╦═╗╔═╗╔╦╗╔═╗╔═╗
+╠╣ ║ ║║║║ ║   ┌┼─  ╠╩╗║╣ ╚╦╝╠╣ ╠╦╝╠═╣║║║║╣ ╚═╗
+╚  ╚═╝╝╚╝ ╩   └┘   ╩ ╩╚═╝ ╩ ╚  ╩╚═╩ ╩╩ ╩╚═╝╚═╝
+*/
+
+@font-face {
+  font-family: 'Klaxons Regular';
+  font-style: normal;
+  font-weight: normal;
+  src: local('Klaxons Regular'), url('/src/Klaxons.woff') format('woff');
+}
+
+@keyframes neon {
+  0%{
+      text-shadow:
+      0 0 1px #fff,
+      0 0 2px #fff,
+      0 0 10px #fff,
+      0 0 20px #fff,
+      0 0 25px #fff;
+  }
+ 50%{
+      text-shadow:
+      0 0 1.5px #fff,
+      0 0 3px #fff,
+      0 0 12px #fff,
+      0 0 25px #fff,
+      0 0 35px #fff;
+  }
+}
+
+/*
+╔═╗╔═╗╔═╗
+╠═╣╠═╝╠═╝
+╩ ╩╩  ╩  
+*/
+
+.App {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  font-family: 'lato', sans-serif;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  height: 100%
+}
+
+h2 {
+  font-size: 2em;
+}
+
+h3 {
+  font-size: 1,5em;
+}
+
+p {
+  font-size: 1em;
+}
+
+/*
+╔╗ ╦ ╦╔╦╗╔╦╗╔═╗╔╗╔
+╠╩╗║ ║ ║  ║ ║ ║║║║
+╚═╝╚═╝ ╩  ╩ ╚═╝╝╚╝
+*/
+
+button {
+  font-family: 'Klaxons Regular';
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(255, 255, 255, .25);
+  width: 10em;
+  height: 5vh;
+  border-radius: 20px;
+  box-shadow: inset
+    0 0 .5px #fff,
+    0 0 1px #fff,
+    0 0 2px #fff,
+    0 0 5px #fff,
+    0 0 10px #fff;
+  cursor: pointer;
+}
+
+
+
+/*
+██╗      ██████╗  ██████╗  ██████╗ 
+██║     ██╔═══██╗██╔════╝ ██╔═══██╗
+██║     ██║   ██║██║  ███╗██║   ██║
+██║     ██║   ██║██║   ██║██║   ██║
+███████╗╚██████╔╝╚██████╔╝╚██████╔╝
+╚══════╝ ╚═════╝  ╚═════╝  ╚═════╝                                 
+*/
+
+.logo {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  height: 15vh;
+  width: auto;
+}
+
+h1 {
+  font-family: 'Klaxons Regular';
+  color: #fff;
+  font-size: 15vh;
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+
+  text-shadow:
+    0 0 1px #fff,
+    0 0 2px #fff,
+    0 0 10px #fff,
+    0 0 20px #fff,
+    0 0 25px #fff;
+  animation: neon 1.5s infinite linear;
+}
+
+
+/*
+██╗      ██████╗  █████╗ ██████╗ ██╗███╗   ██╗ ██████╗ 
+██║     ██╔═══██╗██╔══██╗██╔══██╗██║████╗  ██║██╔════╝ 
+██║     ██║   ██║███████║██║  ██║██║██╔██╗ ██║██║  ███╗
+██║     ██║   ██║██╔══██║██║  ██║██║██║╚██╗██║██║   ██║
+███████╗╚██████╔╝██║  ██║██████╔╝██║██║ ╚████║╚██████╔╝
+╚══════╝ ╚═════╝ ╚═╝  ╚═╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝                                                    
+*/
+
+
+.loading {
+  width: 100%;
+  height: 100%;
+  background-image: url(https://res.cloudinary.com/dhv1kqoqk/image/upload/v1663863008/vibes-main/homepageImg_wpcajh.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.loading .promise {
+  margin-top: 10vh;
+  margin-inline: 10%;
+  height: 55vh;
+  background-color: rgba(0, 0, 0, .7);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  box-shadow: inset
+  0 0 .5px #fff,
+  0 0 1px #fff,
+  0 0 2px #fff,
+  0 0 5px #fff,
+  0 0 10px #fff
+}
+
+.loadingAddValue {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-inline: 30%;
+}
+
+.loadingPic {
+  width: 70%;
+  max-width: 35px;
+  padding-right: 5%;
+}
+
+.loading .logs {
+  margin-top: 10vh;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
