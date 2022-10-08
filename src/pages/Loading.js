@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
-import Logo from "../components/Logo";
 import Promise from "../components/Promise";
 
 function Loading() {
     return (
     <div className="loading">
-      <Logo />
       <Promise />
       <div className="logs">
         <Link to="/login">
