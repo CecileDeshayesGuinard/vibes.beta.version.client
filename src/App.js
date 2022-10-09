@@ -20,15 +20,15 @@ function App() {
       <Logo />
 
       <Routes> 
-        <Route path="/loading" element={ <IsAnon><Loading /></IsAnon> } />
-        <Route path="/signup" element={ <IsAnon><Signup /></IsAnon> } />
-        <Route path="/login" element={ <IsAnon><Login /></IsAnon> } />
-        <Route path="/:userId" element={ <IsPrivate><Homepage /></IsPrivate> } /> 
-        <Route path="/account/:userId" element={ <IsPrivate><Account /></IsPrivate> } /> 
-        <Route path="/profile/:userId" element={ <IsPrivate><Profile /></IsPrivate> } />
-        <Route path="/event/create" element={ <IsPrivate><Event /></IsPrivate> } />
-        <Route path="/event/edit/:eventId" element={ <IsPrivate><EventEd /></IsPrivate> } />
-        <Route path="/event/:eventId" element={ <IsPrivate><EventVue /></IsPrivate> } />
+        <Route path="/loading" element={ <Loading /> } />
+        <Route path="/signup" element={ <Signup /> } />
+        <Route path="/login" element={ <Login /> } />
+        <Route path="/:userId" element={ <Homepage /> } /> 
+        <Route path="/account/:userId" element={ <Account /> } /> 
+        <Route path="/profile/:userId" element={ <Profile /> } />
+        <Route path="/event/create" element={ <Event /> } />
+        <Route path="/event/edit/:eventId" element={ <EventEd /> } />
+        <Route path="/event/:eventId" element={ <EventVue /> } />
       </Routes>
       
 

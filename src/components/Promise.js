@@ -1,7 +1,7 @@
 function Promise (){
 
   return (
-    <div className="promise">
+    <div className="startBlock">
       <h2>Bienvenue chez Vibes</h2>
       <h3>L'application qui te permets<br />de créer tes évènements</h3>
       <table className="loadingAddValue">

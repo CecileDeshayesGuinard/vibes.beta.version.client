@@ -21,13 +21,13 @@ function Signup(props) {
   
     
     const handleSignupSubmit = (e) => {
-      e.preventDefault(); // we stop the request to avoid post before the end of input edition
+      e.preventDefault(); // permet de retenir l'envoi POST
 
-      const requestBody = { userName, phoneNumber, email, password }; // from Antoine's example, we've to create a variable to stock req.body
+      const requestBody = { userName, phoneNumber, email, password };
    
-      axios.post(`${API_URL}/auth/signup`, requestBody) // axios post to the server
+      axios.post(`${API_URL}/auth/signup`, requestBody) // axios POST vers le server
         .then((response) => {
-          navigate('/login'); // redirection to login page
+          navigate('/login'); // redirection vers la page login après validation du formulaire
         })
         .catch((error) => {
           const errorDescription = error.response.data.message;
@@ -36,49 +36,59 @@ function Signup(props) {
     };
     
     return (
-      <div className="SignupPage">
-  
+      <div className="startPages signup">
+
         <form onSubmit={handleSignupSubmit}>
+          <div className="startBlock">
+          <h3>Mes informations !</h3>
 
-        <label>Pseudo:</label>
-          <input 
-            type="text"
-            name="userName"
-            value={userName}
-            onChange={handleUserName}
-          />
-
-          <label>Email:</label>
-          <input 
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleEmail}
-          />
-
-          <label>Telephone:</label>
-          <input 
-            type="text"
-            name="phoneNumber"
-            value={phoneNumber}
-            onChange={handlePhoneNumber}
-          />
+            <input 
+              type="text"
+              name="userName"
+              value={userName}
+              placeholder="Pseudo"
+              onChange={handleUserName}
+            />
   
-          <label>Password:</label>
-          <input 
-            type="password"
-            name="password"
-            value={password}
-            onChange={handlePassword}
-          />
+            <input 
+              type="email"
+              name="email"
+              value={email}
+              placeholder="Email"
+              onChange={handleEmail}
+            />
   
-          <button type="submit">S'enregistrer !</button>
+            <input 
+              type="text"
+              name="phoneNumber"
+              value={phoneNumber}
+              placeholder="Téléphone"
+              onChange={handlePhoneNumber}
+            />
+    
+            <input 
+              type="password"
+              name="password"
+              value={password}
+              placeholder="Mot de passe"
+              onChange={handlePassword}
+            />
+            </div>
+  
+            <div className="logs">
+            <Link to="/loading">
+              <button className="button buttonsBlack">Retour</button>
+            </Link>
+            <button className="button buttonsBlack" type="submit">Enregistrer !</button>
+          </div>
         </form>
   
-        { errorMessage && <p className="error-message">{errorMessage}</p> }
-  
-        <p>Already have account?</p>
-        <Link to={"/login"}> Login</Link>
+        { errorMessage
+        && <p className="error-message">{errorMessage}</p>
+        && <p>Already have account?</p>
+        && <Link to="/signup">
+             <button className="button buttonsWhite">Créer son compte !</button>
+           </Link> }
       </div>
     )
   }

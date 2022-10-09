@@ -7,17 +7,19 @@
  ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝╚══════╝                                                      
 */
 
+
 /*
 ╔═╗╔═╗╔╗╔╔╦╗   ┬   ╦╔═╔═╗╦ ╦╔═╗╦═╗╔═╗╔╦╗╔═╗╔═╗
 ╠╣ ║ ║║║║ ║   ┌┼─  ╠╩╗║╣ ╚╦╝╠╣ ╠╦╝╠═╣║║║║╣ ╚═╗
 ╚  ╚═╝╝╚╝ ╩   └┘   ╩ ╩╚═╝ ╩ ╚  ╩╚═╩ ╩╩ ╩╚═╝╚═╝
 */
 
+
 @font-face {
   font-family: 'Klaxons Regular';
   font-style: normal;
   font-weight: normal;
-  src: local('Klaxons Regular'), url('/src/Klaxons.woff') format('woff');
+  src: local('Klaxons regular'), url('/src/Klaxons.woff') format('woff');
 }
 
 @keyframes neon {
@@ -39,11 +41,13 @@
   }
 }
 
+
 /*
 ╔═╗╔═╗╔═╗
 ╠═╣╠═╝╠═╝
 ╩ ╩╩  ╩  
 */
+
 
 .App {
   margin: 0;
@@ -71,30 +75,141 @@ p {
   font-size: 1em;
 }
 
+::placeholder {
+  font-size: 1em;
+  color: rgba(255, 255, 255, .7);
+}
+
+.error-message {
+  font-size: .5em;
+}
+
+
+/*
+╔╗ ╦ ╦╔╦╗╔╦╗╔═╗╔╗╔  ╔═╗╔═╗╔═╗╔═╗╔═╗
+╠╩╗║ ║ ║  ║ ║ ║║║║  ╚═╗╠═╝╠═╣║  ║╣ 
+╚═╝╚═╝ ╩  ╩ ╚═╝╝╚╝  ╚═╝╩  ╩ ╩╚═╝╚═╝
+*/
+
+
+.logs {
+  margin-top: 7.5vh;
+  margin-bottom: 2.5vh;
+  height: 10vh;
+  display: flex;
+  justify-content: space-around;
+}
+
+
 /*
 ╔╗ ╦ ╦╔╦╗╔╦╗╔═╗╔╗╔
 ╠╩╗║ ║ ║  ║ ║ ║║║║
 ╚═╝╚═╝ ╩  ╩ ╚═╝╝╚╝
 */
 
+
 button {
   font-family: 'Klaxons Regular';
   font-size: 1em;
   font-weight: bold;
   color: #fff;
-  background: rgba(255, 255, 255, .25);
   width: 10em;
   height: 5vh;
   border-radius: 20px;
   box-shadow: inset
-    0 0 .5px #fff,
-    0 0 1px #fff,
-    0 0 2px #fff,
-    0 0 5px #fff,
-    0 0 10px #fff;
+  0 0 .5px #fff,
+  0 0 1px #fff,
+  0 0 2px #fff,
+  0 0 5px #fff,
+  0 0 10px #fff;
   cursor: pointer;
 }
 
+.buttonsWhite {
+  background: rgba(255, 255, 255, .25);
+}
+
+.buttonsBlack {
+  background: rgba(0, 0, 0, .7);
+}
+
+
+
+/*
+╦╔╗╔╔═╗╦ ╦╔╦╗
+║║║║╠═╝║ ║ ║ 
+╩╝╚╝╩  ╚═╝ ╩ 
+*/
+
+
+label {
+  font-weight: bold;
+  padding-top: 3vh;
+  padding-bottom: 1vh;
+}
+
+input {
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+  background: rgba(255, 255, 255, .25);
+  width: 80%;
+  max-width: 50em;
+  height: 5vh;
+  box-shadow: inset
+  0 0 .5px #fff,
+  0 0 1px #fff,
+  0 0 2px #fff,
+  0 0 5px #fff,
+  0 0 10px #fff;
+}
+
+
+/*
+╔═╗╔╦╗╔═╗╦═╗╔╦╗  ╔═╗╔═╗╔═╗╔═╗╔═╗
+╚═╗ ║ ╠═╣╠╦╝ ║   ╠═╝╠═╣║ ╦║╣ ╚═╗
+╚═╝ ╩ ╩ ╩╩╚═ ╩   ╩  ╩ ╩╚═╝╚═╝╚═╝
+*/
+
+
+.startPages {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.startBlock {
+  margin-top: 22.5vh;
+  margin-inline: 10%;
+  height: 55vh;
+  background-color: rgba(0, 0, 0, .7);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  padding-bottom: 3vh;
+  border-radius: 5px;
+  box-shadow: inset
+  0 0 .5px #fff,
+  0 0 1px #fff,
+  0 0 2px #fff,
+  0 0 5px #fff,
+  0 0 10px #fff
+}
+
+
+/*
+╔═╗╔═╗╦═╗╔╦╗
+╠╣ ║ ║╠╦╝║║║
+╚  ╚═╝╩╚═╩ ╩
+*/
+
+
+form {
+  width: 100%;
+  height: 100%;
+}
 
 
 /*
@@ -106,19 +221,18 @@ button {
 ╚══════╝ ╚═════╝  ╚═════╝  ╚═════╝                                 
 */
 
+
 .logo {
-  display: flex;
-  justify-content: center;
-  text-align: center;
+  width: 100%;
   height: 15vh;
-  width: auto;
+  position: absolute;
 }
 
 h1 {
   font-family: 'Klaxons Regular';
   color: #fff;
   font-size: 15vh;
-  display: table-cell;
+  text-align: center;
   margin: 0;
   padding: 0;
 
@@ -132,6 +246,7 @@ h1 {
 }
 
 
+
 /*
 ██╗      ██████╗  █████╗ ██████╗ ██╗███╗   ██╗ ██████╗ 
 ██║     ██╔═══██╗██╔══██╗██╔══██╗██║████╗  ██║██╔════╝ 
@@ -143,30 +258,14 @@ h1 {
 
 
 .loading {
-  width: 100%;
-  height: 100%;
   background-image: url(https://res.cloudinary.com/dhv1kqoqk/image/upload/v1663863008/vibes-main/homepageImg_wpcajh.jpg);
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
-.loading .promise {
-  margin-top: 10vh;
-  margin-inline: 10%;
-  height: 55vh;
-  background-color: rgba(0, 0, 0, .7);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  border-radius: 5px;
-  box-shadow: inset
-  0 0 .5px #fff,
-  0 0 1px #fff,
-  0 0 2px #fff,
-  0 0 5px #fff,
-  0 0 10px #fff
-}
+/*
+╔═╗╦═╗╔═╗╔╦╗╦╔═╗╔═╗  ╔═╗╔═╗╔╦╗╔═╗╔═╗╔╗╔╔═╗╔╗╔╔╦╗
+╠═╝╠╦╝║ ║║║║║╚═╗║╣   ║  ║ ║║║║╠═╝║ ║║║║║╣ ║║║ ║ 
+╩  ╩╚═╚═╝╩ ╩╩╚═╝╚═╝  ╚═╝╚═╝╩ ╩╩  ╚═╝╝╚╝╚═╝╝╚╝ ╩ 
+*/
 
 .loadingAddValue {
   width: 100%;
@@ -182,9 +281,34 @@ h1 {
   padding-right: 5%;
 }
 
-.loading .logs {
-  margin-top: 10vh;
-  height: 10vh;
-  display: flex;
-  justify-content: space-around;
+
+
+/*
+██╗      ██████╗  ██████╗ ██╗███╗   ██╗
+██║     ██╔═══██╗██╔════╝ ██║████╗  ██║
+██║     ██║   ██║██║  ███╗██║██╔██╗ ██║
+██║     ██║   ██║██║   ██║██║██║╚██╗██║
+███████╗╚██████╔╝╚██████╔╝██║██║ ╚████║
+╚══════╝ ╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═══╝                                  
+*/
+
+
+.login {
+  background-image: url(https://res.cloudinary.com/dhv1kqoqk/image/upload/v1665327816/vibes-main/loginBack_dvcjgg.jpg);
+}
+
+
+
+/*
+███████╗██╗ ██████╗ ███╗   ██╗██╗   ██╗██████╗ 
+██╔════╝██║██╔════╝ ████╗  ██║██║   ██║██╔══██╗
+███████╗██║██║  ███╗██╔██╗ ██║██║   ██║██████╔╝
+╚════██║██║██║   ██║██║╚██╗██║██║   ██║██╔═══╝ 
+███████║██║╚██████╔╝██║ ╚████║╚██████╔╝██║     
+╚══════╝╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚═╝                                                 
+*/
+
+
+.signup {
+  background-image: url(https://res.cloudinary.com/dhv1kqoqk/image/upload/v1664011688/vibes-main/signupFriends_bn1cog.jpg);
 }
