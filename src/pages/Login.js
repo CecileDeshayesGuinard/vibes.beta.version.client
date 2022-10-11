@@ -10,7 +10,6 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, seterrorMessage] = useState(undefined); // envoi du message d'erreur concernant l'email
-
   const navigate = useNavigate();
 
   // const { storeToken, authenticateUser } = useContext(AuthContext);
