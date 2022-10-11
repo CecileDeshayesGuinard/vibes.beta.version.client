@@ -1,10 +1,10 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
 const API_URL = "http://localhost:5005";
 
-function Signup(props) {
+function Signup() {
 
   const [userName, setUserName] = useState("");
   const [email, setEmail] = useState("");
@@ -21,9 +21,9 @@ function Signup(props) {
   
   const handleSignupSubmit = (e) => {
     e.preventDefault(); // permet de retenir l'envoi POST
-    const requestBody = { userName, phoneNumber, email, password };
+    const reqBody = { userName, phoneNumber, email, password };
  
-    axios.post(`${API_URL}/auth/signup`, requestBody) // axios POST vers le server
+    axios.post(`${API_URL}/auth/signup`, reqBody) // axios POST vers le server
       .then((response) => {
         navigate('/login'); // redirection vers la page login après validation du formulaire
       })
@@ -45,10 +45,9 @@ function Signup(props) {
             value={userName}
             placeholder="Pseudo"
             onChange={handleUserName}
-          >
-          { errorMessage && <p className="error-message">{errorMessage}</p> }
-          </input>
+          />
           
+
           <input 
             type="email"
             name="email"
@@ -56,7 +55,6 @@ function Signup(props) {
             placeholder="Email"
             onChange={handleEmail}
           />
-          { errorMessage && <p className="error-message">{errorMessage}</p> }
 
           <input 
             type="text"
@@ -65,7 +63,6 @@ function Signup(props) {
             placeholder="Téléphone"
             onChange={handlePhoneNumber}
           />
-          { errorMessage && <p className="error-message">{errorMessage}</p> }
   
           <input 
             type="password"
@@ -74,7 +71,9 @@ function Signup(props) {
             placeholder="Mot de passe"
             onChange={handlePassword}
           />
+
           { errorMessage && <p className="error-message">{errorMessage}</p> }
+
         </div>
           
         <div className="logs">
@@ -85,12 +84,12 @@ function Signup(props) {
         </div>
       </form>
 
-      { errorMessage
+      {/* errorMessage
       && <p className="error-message">{errorMessage}</p>
       && <p>Already have account?</p>
       && <Link to="/signup">
            <button className="button buttonsWhite">Créer son compte !</button>
-         </Link> }
+         </Link> */}
     </div>
   )
 }
