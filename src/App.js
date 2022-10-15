@@ -23,7 +23,7 @@ function App() {
         <Route path="/loading" element={ <Loading /> } />
         <Route path="/signup" element={ <Signup /> } />
         <Route path="/login" element={ <Login /> } />
-        <Route path="/:userId" element={ <Homepage /> } /> 
+        <Route path="/" element={ <Homepage /> } /> 
         <Route path="/account/:userId" element={ <Account /> } /> 
         <Route path="/profile/:userId" element={ <Profile /> } />
         <Route path="/event/create" element={ <Event /> } />

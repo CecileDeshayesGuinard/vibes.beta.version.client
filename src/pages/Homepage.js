@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
-import Promise from "../components/Promise";
+import Avatar from "../components/Avatar";
+import EventPlayer from "../components/EventPlayer";
 
-function Loading() {
+function Homepage() {
     return (
-    <div className="loading">
-      <Promise />
+    <div className="startPages">
+      <div className="pageBlock homepage">
+        <Avatar />
+        <EventPlayer />
+      </div>
       <div className="logs">
         <Link to="/login">
           <button className="buttons">Login</button>
@@ -13,8 +17,9 @@ function Loading() {
           <button className="buttons">Signup</button>
         </Link>
       </div>
+      
     </div>
     );
   }
    
-  export default Loading;
+  export default Homepage;
