@@ -1,20 +1,11 @@
-import { Link } from "react-router-dom";
-import Promise from "../components/Promise";
+import Avatar from "../components/underComponents/Avatar";
 
-function Loading() {
+function Profile() {
     return (
-    <div className="loading">
-      <Promise />
-      <div className="logs">
-        <Link to="/login">
-          <button className="buttons">Login</button>
-        </Link>
-        <Link to="/signup">
-          <button className="buttons">Signup</button>
-        </Link>
-      </div>
+    <div>
+      <Avatar />
     </div>
     );
   }
    
-  export default Loading;
+  export default Profile;

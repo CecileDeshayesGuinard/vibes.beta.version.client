@@ -209,7 +209,7 @@ input {
 
 .pageBlock {
   margin-top: 22.5vh;
-  margin-inline: 2.5%;
+  margin-inline: 10%;
   background-color: rgba(0, 0, 0, .7);
   display: flex;
   flex-direction: column;
@@ -255,13 +255,15 @@ form {
   width: 100%;
   height: 100%;
   display: flex;
-  justify-content: space-around;
+  justify-content: left;
   align-items: center;
+  margin-bottom: 5vh;
 }
 
 .avatar {
-  width: 20vh;
-  height: 20vh;
+  width: 15vh;
+  height: 15vh;
+  margin-right: 1em;
   border-radius: 50%;
   box-shadow: inset
   0 0 .5px #FF00FF,
@@ -272,9 +274,9 @@ form {
   cursor: pointer;
 }
 
-.small {
-  width: 10vh;
-  height: 10vh;
+.smallAvatar {
+  width: 5vh;
+  height: 5vh;
   border-radius: 50%;
   box-shadow: inset
   0 0 .5px #FF00FF,

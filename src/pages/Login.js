@@ -71,14 +71,6 @@ function Login() {
             <button className="button buttonsWhite" type="submit">Connexion !</button>
         </div>
       </form>
-
-        {/* errorMessage
-        && <p className="error-message">{foundErrorMessage}</p>
-        && <p>Don't have an account yet ?</p>
-        && <Link to="/signup">
-             <button className="button buttonsWhite">Créer son compte !</button>
-           </Link>
-        */}
     </div>
     );
   }

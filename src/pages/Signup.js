@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -46,7 +46,6 @@ function Signup() {
             placeholder="Pseudo"
             onChange={handleUserName}
           />
-          
 
           <input 
             type="email"
@@ -83,13 +82,6 @@ function Signup() {
           <button className="button buttonsBlack" type="submit">Enregistrer !</button>
         </div>
       </form>
-
-      {/* errorMessage
-      && <p className="error-message">{errorMessage}</p>
-      && <p>Already have account?</p>
-      && <Link to="/signup">
-           <button className="button buttonsWhite">Créer son compte !</button>
-         </Link> */}
     </div>
   )
 }
