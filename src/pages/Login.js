@@ -41,7 +41,7 @@ function Login() {
     <div className="startPages login">
 
       <form onSubmit={handleLogSubmit}>
-        <div className="startBlock">
+        <div className="lightningBlock startPageBlock">
           <h2>Pret pour l'expérience ?</h2>
           <h3>Connectez-vous !</h3>
 

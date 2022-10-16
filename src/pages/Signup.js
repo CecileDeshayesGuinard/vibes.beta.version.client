@@ -36,7 +36,7 @@ function Signup() {
   return (
     <div className="startPages signup">
       <form onSubmit={handleSignupSubmit}>
-        <div className="startBlock">
+        <div className="lightningBlock startPageBlock">
           <h3>Mes informations !</h3>
 
           <input 
