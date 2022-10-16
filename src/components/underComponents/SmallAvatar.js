@@ -1,11 +1,14 @@
+import SmallAvatarPic from "./SmallAvatarPic";
+
 function SmallAvatar() {
 
-    return (
-      <div>
-        <img className="smallAvatar" name="userPhoto" type="image" id="avatar" alt="Avatar" />
-      </div>
-    );
+  return (
+    <div className="innerLightning">
+      <SmallAvatarPic />
+      <h4>Pseudo</h4>
+    </div>
+  );
     
-  }
+}
     
-  export default SmallAvatar;
+export default SmallAvatar;

@@ -1,15 +1,16 @@
 import Meteo from "./underComponents/Meteo";
 import Temperature from "./underComponents/Temperature";
+import SmallEventPhoto from "./underComponents/SmallEventPhoto";
 
-function EventMakerSection() {
+function EventPlayer() {
 
   return (
     <div className="block">
-      <div className="eventPart maker">
+      <div className="eventPart player">
       <h3>Event Name</h3>
         <div className="infoPart">
           <div className="imagePart">
-            <img className="smallEventPhoto" src="#" name="eventPicture" alt="Evènement" />
+            <SmallEventPhoto />
           </div>
           <div className="meteoPart">
             <Meteo />
@@ -17,11 +18,13 @@ function EventMakerSection() {
           </div>
         </div>
         <div className="promoPart">
+          <p>organizer</p>
           <p>Nb Pers.</p>
         </div>
       </div>
     </div>
   );
+    
 }
     
-export default EventMakerSection;
+  export default EventPlayer;

@@ -1,11 +1,11 @@
 import Meteo from "./underComponents/Meteo";
 import Temperature from "./underComponents/Temperature";
 
-function EventPlayerSection() {
+function EventMaker() {
 
   return (
     <div className="block">
-      <div className="eventPart player">
+      <div className="eventPart maker">
       <h3>Event Name</h3>
         <div className="infoPart">
           <div className="imagePart">
@@ -17,13 +17,11 @@ function EventPlayerSection() {
           </div>
         </div>
         <div className="promoPart">
-          <p>organizer</p>
           <p>Nb Pers.</p>
         </div>
       </div>
     </div>
   );
-    
 }
     
-  export default EventPlayerSection;
+export default EventMaker;

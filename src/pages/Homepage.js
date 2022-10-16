@@ -1,10 +1,10 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
 import Avatar from "../components/underComponents/Avatar";
-import EventPlayer from "../components/EventPlayerSection";
-import EventMaker from "../components/EventMakerSection";
-import Request from "../components/Request";
-import Invitations from "../components/InvitationsSection";
+import EventPlayer from "../components/EventPlayer";
+import EventMaker from "../components/EventMaker";
+import UserRequest from "../components/UserRequest";
+import EventRequest from "../components/EventRequest";
 
 function Homepage() {
 
@@ -17,8 +17,9 @@ function Homepage() {
       <h3>Mes évènements :</h3>
       <EventMaker />
       <h3>Demandes de connexion !</h3>
-      <Request />
-      <Invitations />
+      <UserRequest />
+      <h3>Invitations !</h3>
+      <EventRequest />
     </div>
     <div className="logs">
       <Link to="/logout">
