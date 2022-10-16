@@ -10,7 +10,7 @@ function Homepage() {
 
   return (
   <div className="startPages">
-    <div className="startPageBlock homepage">
+    <div className="startPageBlock">
       <Avatar />
       <h3>Je participe a :</h3>
       <EventPlayer />

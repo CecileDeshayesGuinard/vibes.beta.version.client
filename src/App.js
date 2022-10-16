@@ -5,7 +5,7 @@ import Loading from './pages/Loading';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Homepage from './pages/Homepage';
-import Account from './pages/Account';
+import Account from './pages/UserAccount';
 import Profile from './pages/Profile';
 import Event from './pages/Event';
 import EventEd from './pages/EventEd';
@@ -24,11 +24,11 @@ function App() {
         <Route path="/signup" element={ <Signup /> } />
         <Route path="/login" element={ <Login /> } />
         <Route path="/" element={ <Homepage /> } /> 
-        <Route path="/account/:userId" element={ <Account /> } /> 
-        <Route path="/profile/:userId" element={ <Profile /> } />
+        <Route path="/account" element={ <Account /> } /> 
+        <Route path="/profile" element={ <Profile /> } />
         <Route path="/event/create" element={ <Event /> } />
-        <Route path="/event/edit/:eventId" element={ <EventEd /> } />
-        <Route path="/event/:eventId" element={ <EventVue /> } />
+        <Route path="/event/edit/" element={ <EventEd /> } />
+        <Route path="/event/vue" element={ <EventVue /> } />
       </Routes>
       
 
