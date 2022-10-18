@@ -1,7 +1,8 @@
-/*import { useState } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Avatar from "../components/underComponents/Avatar";
+import ContactResearch from "../components/ContactResearch";
 
 const API_URL = "http://localhost:5005";
 
@@ -33,11 +34,13 @@ function UserAccount() {
     })
   };
 
+  
   return (
     <div className="startPages">
+      <div className="startPageBlock">
     <Avatar />
     <form onSubmit={handleSignupSubmit}>
-      <div className="lightningBlock startPageBlock">
+      <div className="lightningBlock">
         <h3>Mes informations !</h3>
 
         <input 
@@ -65,8 +68,10 @@ function UserAccount() {
         />
 
         { errorMessage && <p className="error-message">{errorMessage}</p> }
-
       </div>
+
+      <ContactResearch />
+
 
       <div className="logs">
         <button className="button buttonsBlack" type="submit">Enregistrer !</button>
@@ -76,9 +81,10 @@ function UserAccount() {
       </div>
 
     </form>
+    </div>
 
     </div>
   )
 }
 
-export default UserAccount;*/
+export default UserAccount;

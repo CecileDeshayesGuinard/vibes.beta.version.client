@@ -35,9 +35,6 @@ export default Meteo;
 
 
 
-
-
-
 /*function Meteo (props) {
 
   const [data, setData] = useState('')

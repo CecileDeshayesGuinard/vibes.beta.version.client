@@ -5,7 +5,7 @@ import { AuthContext } from '../context/auth.context';
 
 function Login() {
 
-  const API_URL = "localhost://5005"  
+  const API_URL = "localhost://5005";  
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
