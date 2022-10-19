@@ -12,11 +12,13 @@ function SearchList() {
   const [userLists, setLists] = useState([]);
   const handleListName = (e) => setSearch(e.target.value)
 
+  const storedToken = localStorage.getItem("authToken");
+
   // Récupération de la liste dépendantes de l'utilisateur connecté
   useEffect (() => {
     axios
       .get(
-        `${API_URL}/api/list` // Voir avec Antoine pour obtenir les listes de l'utilsateur connecté
+        `${API_URL}/api/list`, { headers: { Authorization: `Bearer ${storedToken}` } }
       )
       .then((response) => {
         console.log("list response", response.data);
@@ -28,18 +30,18 @@ function SearchList() {
   // Filtre par id du propriétaire de la liste
   const listsFilter = 
     userLists.filter(e => {
-    return e.userList.includes(search.toLowerCase())
+    return e.list.includes(search.toLowerCase())
   })
 
 
   return (
     <div>
-      {search.length > 0 &&
+      {search.length !== 0 &&
       <div>
         <div className="grid">
-        {listsFilter.map((userList) => (
-        <div key={userList._id}>
-          <UserLists onChange={userList.user} alt="List" />
+        {listsFilter.map((list) => (
+        <div key={list._id}>
+          <UserLists name={list.name}   />
         </div>
         ))}
         </div>
@@ -50,11 +52,16 @@ function SearchList() {
         <div className="grid">
         {listsFilter.map((userList) => (
         <div key={userList._id}>
-          <Avatar userPhoto={userList.list.userPhoto} userName={userList.list.userName} alt="User" />
+          <Avatar userPhoto={userList.list.userPhoto} setSearch={setSearch} userName={userList.list.userName} onChange={handleListName} alt="User" />
         </div>
         ))}
         </div>
       </div>
+      }
+      {search.length === 0 &&
+      <div>
+        <p>⛔️ Vous n'avez pas créé de listes !</p>
+      </div> 
       }
     </div>
   )

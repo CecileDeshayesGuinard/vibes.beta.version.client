@@ -5,14 +5,14 @@ import { AuthContext } from '../context/auth.context';
 
 function Login() {
 
-  const API_URL = "localhost://5005";  
+  const API_URL = "http://localhost:5005";  
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [errorMessage, seterrorMessage] = useState(undefined); // envoi du message d'erreur concernant l'email
+  const [errorMessage, setErrorMessage] = useState(undefined); // envoi du message d'erreur concernant l'email
   const navigate = useNavigate();
 
-  // const { storeToken, authenticateUser } = useContext(AuthContext);
+  const { storeToken, authenticateUser } = useContext(AuthContext);
 
   const handleEmail = (e) => setEmail(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
@@ -22,18 +22,18 @@ function Login() {
     e.preventDefault();
     const reqBody = { email, password };
  
-    axios.post(`${API_URL}/api/sessions`, reqBody)
+    axios.post(`${API_URL}/auth/sessions`, reqBody)
       .then((response) => {
         console.log('JWT token', response.data.authToken );
 
-        // storeToken(response.data.authToken); // enregistrement du token dans le browser
-        // authenticateUser(); 
-
+        storeToken(response.data.authToken); // enregistrement du token dans le browser
+        authenticateUser(); 
         navigate('/'); // si l'authentification est réussi, redirection vers la homepage                         
       })
       .catch((error) => {
-        const errorResponse = error.response.data.message; // affiche le message d'erreur depuis le server
-        seterrorMessage(errorResponse);
+        const errorDescription = error.response.data.message; // affiche le message d'erreur depuis le server
+        setErrorMessage(errorDescription);
+        console.log(errorMessage)
       })
   };
 

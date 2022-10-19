@@ -11,18 +11,25 @@ function SearchContact() {
   const [users, setUsers] = useState([]);
   const handleUsers = (e) => setSearch(e.target.value)
 
-  // Récupération de la liste des utilisateurs depuis le serveur
-  useEffect (() => {
+  const storedToken = localStorage.getItem("authToken");
+
+  // Création d'une function pour l'api GET car un useEffect direct ne permet pas d'utiliser le headers / bearer
+  const getUsers = () => {
     axios
       .get(
-        `${API_URL}/api/users`
+        `${API_URL}/api/users`, { headers: { Authorization: `Bearer ${storedToken}` }}
       )
       .then((response) => {
         console.log("contact response", response.data);
         setUsers(response.data);
       })
       .catch((err) => console.log("error to find users", err));
-  }, [])
+  };
+
+  // Récupération de la liste des utilisateurs depuis le serveur
+  useEffect(()=> {
+    getUsers();
+  }, [] );
 
   // Pour un filtre sur 3 critères
   const nameFilter = 
@@ -44,7 +51,7 @@ function SearchContact() {
 
   return (
     <div>
-      <SearchBar search={search} setSearch={setSearch} value={search} onChange={handleUsers} placeholder="Par nom, email ou numéro" />
+      <SearchBar search={search} setSearch={setSearch} onChange={handleUsers} placeholder="Par nom, email ou numéro" />
       {search.length !== 0 &&
       <div className="freeLightningBlock">
         <div className="grid">
