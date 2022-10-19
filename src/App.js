@@ -24,11 +24,11 @@ function App() {
         <Route path="/signup" element={ <IsAnon><Signup /></IsAnon> } />
         <Route path="/login" element={ <IsAnon><Login /></IsAnon> } />
         <Route path="/" element={ <IsPrivate><Homepage /></IsPrivate> } /> 
-        <Route path="/account" element={ <IsPrivate><Account /></IsPrivate> } /> 
-        <Route path="/profile" element={ <IsPrivate><Profile /></IsPrivate> } />
+        <Route path="/account/:userId" element={ <IsPrivate><Account /></IsPrivate> } /> 
+        <Route path="/profile/:userId" element={ <IsPrivate><Profile /></IsPrivate> } />
         <Route path="/event/create" element={ <IsPrivate><Event /></IsPrivate> } />
-        <Route path="/event/edit/" element={ <IsPrivate><EventEd /></IsPrivate> } />
-        <Route path="/event/vue" element={ <IsPrivate><EventVue /></IsPrivate> } />
+        <Route path="/event/edit/:eventId" element={ <IsPrivate><EventEd /></IsPrivate> } />
+        <Route path="/event/vue/:eventId" element={ <IsPrivate><EventVue /></IsPrivate> } />
       </Routes>
       
 

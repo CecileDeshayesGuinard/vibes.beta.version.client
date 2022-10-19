@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import axios from "axios";
 import Avatar from "../components/underComponents/Avatar";
 import EventPlayer from "../components/EventPlayer";
@@ -6,13 +6,29 @@ import EventMaker from "../components/EventMaker";
 import UserRequest from "../components/UserRequest";
 import EventRequest from "../components/EventRequest";
 
+const API_URL = "http://localhost:5005";
+
 function Homepage() {
+
+  const storedToken = localStorage.getItem("authToken");
+  const { userId } = useParams();
+
+  const accountRoute = () => {
+    axios
+    .get (`${API_URL}/account/${userId}`, { headers: { Authorization: `Bearer ${storedToken}` }} )
+  }
+
+  const logout = () => {
+    localStorage.removeItem(storedToken)
+  }
 
 
   return (
   <div className="startPages">
     <div className="startPageBlock">
+      <Link to={accountRoute}>
       <Avatar />
+      </Link>
       <h3>Je participe a :</h3>
       <EventPlayer />
       <h3>Mes évènements :</h3>
@@ -23,9 +39,7 @@ function Homepage() {
       <EventRequest />
     </div>
     <div className="logs">
-      <Link to="/logout">
-        <button className="buttons buttonsWhite">Logout</button>
-      </Link>
+      <button onClick={logout} className="button buttonsWhite">Logout</button>
     </div>
   </div>
   );

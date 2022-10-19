@@ -13,6 +13,7 @@ function UserAccount() {
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
+  const [successMessage, setSuccessMessage] = useState(undefined);
   const [list, setList] = useState("");
 
   const navigate = useNavigate();
@@ -27,7 +28,7 @@ function UserAccount() {
 
   useEffect(() => {
     axios
-    .get(`${API_URL}/api/user/${userId}`, { headers: { Authorization: `Bearer ${storedToken}` }} )
+    .get(`${API_URL}/api/users/${userId}`, { headers: { Authorization: `Bearer ${storedToken}` }} )
     .then((response) => {
 
       const userData = response.data;
@@ -44,9 +45,12 @@ function UserAccount() {
 
     const reqBody = { userName, phoneNumber, password };
 
-    axios.put(`${API_URL}/api/user/${userId}`, reqBody, { headers: { Authorization: `Bearer ${storedToken}` }} )
+    axios
+    .put(`${API_URL}/api/users/${userId}`, reqBody, { headers: { Authorization: `Bearer ${storedToken}` }} )
     .then((response) => {
-      navigate(`/user/${userId}`)
+      const successDescription = response.response.data.message;
+      setSuccessMessage(successDescription);
+      navigate(`/account/${userId}`)
     })
     .catch((error) => {
       const errorDescription = error.response.data.message;
@@ -56,11 +60,11 @@ function UserAccount() {
 
   const deleteAccount = () => {
     axios
-      .delete(`${API_URL}/api/user/${userId}`)
-      .then(() => {
-        navigate("/loading");
-      })
-      .catch((err) => console.log(err));
+    .delete(`${API_URL}/api/users/${userId}`, { headers: { Authorization: `Bearer ${storedToken}` }})
+    .then(() => {
+      navigate("/loading");
+    })
+    .catch((err) => console.log(err));
   };  
   
   return (
@@ -94,7 +98,7 @@ function UserAccount() {
           placeholder="Mot de passe"
           onChange={handlePassword}
         />
-
+        { successMessage && <p className="error-message">{successMessage}</p> }
         { errorMessage && <p className="error-message">{errorMessage}</p> }
         <button className="button buttonsWhite" type="submit">Mettre à jour !</button>
       </div>
@@ -116,7 +120,7 @@ function UserAccount() {
 
     </div>
     <div className="logs">
-        <button onClick={deleteAccount} className="button buttonsWhite">Effacer le Compte</button>
+        <button onChange={deleteAccount} className="button buttonsWhite">Effacer le Compte</button>
     </div>
 
 
