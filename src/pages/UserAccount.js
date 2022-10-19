@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 import Avatar from "../components/underComponents/Avatar";
 import SearchContact from "../components/SearchContact";
@@ -12,6 +12,7 @@ function UserAccount() {
   const [userName, setUserName] = useState("");
   const [phoneNumber, setPhoneNumber] = useState("");
   const [password, setPassword] = useState("");
+  const [userPhoto, setUserPhoto] = useState("");
   const [errorMessage, setErrorMessage] = useState(undefined);
   const [successMessage, setSuccessMessage] = useState(undefined);
   const [list, setList] = useState("");
@@ -24,6 +25,22 @@ function UserAccount() {
   const handleUserName = (e) => setUserName(e.target.value);
   const handlePhoneNumber = (e) => setPhoneNumber(e.target.value);
   const handlePassword = (e) => setPassword(e.target.value);
+  const handleFileUpload = (e) => {
+
+ 
+    const uploadData = new FormData();
+ 
+    uploadData.append("userPhoto", e.target.files[0]);
+ 
+     // tu n'as pas besoin de service: fais juste une requete axios classique directement comme a la ligne 48
+     axios
+     .post(`${API_URL}/api/upload/`, uploadData, { headers: { Authorization: `Bearer ${storedToken}` }} ) // il faut qd meme que tu transmette uploadData (l'object dans lequel est ton image)
+     .then(response => {
+       setUserPhoto(response.userPhoto);
+     })
+     .catch(err => console.log("Error while uploading the file: ", err));
+  };
+
   const handleList = (e) => setList(e.target.value);
 
   useEffect(() => {
@@ -35,6 +52,7 @@ function UserAccount() {
       handleUserName(userData.userName);
       handlePhoneNumber(userData.phoneNumber);
       handlePassword(userData.password);
+      handleFileUpload(userData.userPhoto);
 
     })
     .catch((error) => console.log(error));
@@ -43,7 +61,7 @@ function UserAccount() {
   const handleSignupSubmit = (e) => {
     e.preventDefault();
 
-    const reqBody = { userName, phoneNumber, password };
+    const reqBody = { userName, phoneNumber, password, userPhoto };
 
     axios
     .put(`${API_URL}/api/users/${userId}`, reqBody, { headers: { Authorization: `Bearer ${storedToken}` }} )
@@ -71,9 +89,9 @@ function UserAccount() {
     <div className="startPages">
       <div className="startPageBlock">
     <Avatar />
-    <form onSubmit={handleSignupSubmit}>
+    <form onSubmit={handleSignupSubmit} method="post">
       <div className="lightningBlock">
-      <h3>Mes informations !</h3>
+      <h4>Mes informations !</h4>
 
         <input 
           type="text"
@@ -98,6 +116,15 @@ function UserAccount() {
           placeholder="Mot de passe"
           onChange={handlePassword}
         />
+
+        <input 
+          type="file"
+          name="userPhoto"
+          accept=".jpg, .jpeg, .png, .svg"
+          value={userPhoto}
+          onChange={(e) => handleFileUpload(e)}
+        />
+
         { successMessage && <p className="error-message">{successMessage}</p> }
         { errorMessage && <p className="error-message">{errorMessage}</p> }
         <button className="button buttonsWhite" type="submit">Mettre à jour !</button>
@@ -120,6 +147,9 @@ function UserAccount() {
 
     </div>
     <div className="logs">
+      <Link to={`/${userId}`}>
+        <button className="button buttonsWhite">Homepage</button>
+      </Link>
         <button onChange={deleteAccount} className="button buttonsWhite">Effacer le Compte</button>
     </div>
 

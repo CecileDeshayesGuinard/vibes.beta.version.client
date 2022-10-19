@@ -13,11 +13,6 @@ function Homepage() {
   const storedToken = localStorage.getItem("authToken");
   const { userId } = useParams();
 
-  const accountRoute = () => {
-    axios
-    .get (`${API_URL}/account/${userId}`, { headers: { Authorization: `Bearer ${storedToken}` }} )
-  }
-
   const logout = () => {
     localStorage.removeItem(storedToken)
   }
@@ -26,8 +21,8 @@ function Homepage() {
   return (
   <div className="startPages">
     <div className="startPageBlock">
-      <Link to={accountRoute}>
-      <Avatar />
+      <Link to={`/account/${userId}`}>
+        <Avatar />
       </Link>
       <h3>Je participe a :</h3>
       <EventPlayer />

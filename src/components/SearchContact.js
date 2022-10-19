@@ -51,28 +51,35 @@ function SearchContact() {
 
   return (
     <div>
+
       <SearchBar search={search} setSearch={setSearch} onChange={handleUsers} placeholder="Par nom, email ou numéro" />
+
       {search.length !== 0 &&
       <div className="freeLightningBlock">
         <div className="grid">
+
         {nameFilter.map((user) => (
         <div key={user._id}>
           <Avatar userPhoto={user.userPhoto} userName={user.userName} alt="User" />
         </div>
         ))}
+
         {emailFilter.map((user) => (
         <div key={user._id}>
           <Avatar userPhoto={user.userPhoto} userName={user.userName} alt="User" />
         </div>
         ))}
+
         {phoneFilter.map((user) => (
         <div key={user._id}>
           <Avatar userPhoto={user.userPhoto} userName={user.userName} alt="User" />
         </div>
         ))}
+
         </div>
       </div>
       }
+      
     </div>
   )
 }
