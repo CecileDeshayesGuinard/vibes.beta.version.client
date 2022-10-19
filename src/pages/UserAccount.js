@@ -2,7 +2,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import Avatar from "../components/underComponents/Avatar";
-import ContactResearch from "../components/ContactResearch";
+import SearchContact from "../components/SearchContact";
+import SearchList from "../components/SearchList";
 
 const API_URL = "http://localhost:5005";
 
@@ -41,7 +42,7 @@ function UserAccount() {
     <Avatar />
     <form onSubmit={handleSignupSubmit}>
       <div className="lightningBlock">
-        <h3>Mes informations !</h3>
+      <h3>Mes informations !</h3>
 
         <input 
           type="text"
@@ -70,13 +71,15 @@ function UserAccount() {
         { errorMessage && <p className="error-message">{errorMessage}</p> }
       </div>
 
-      <ContactResearch />
+      <SearchContact />
+
+      <SearchList />
 
 
       <div className="logs">
-        <button className="button buttonsBlack" type="submit">Enregistrer !</button>
+        <button className="button buttonsWhite" type="submit">Enregistrer !</button>
       <Link to="/loading">
-        <button className="button buttonsBlack">Effacer le Compte</button>
+        <button className="button buttonsWhite">Effacer le Compte</button>
       </Link>
       </div>
 

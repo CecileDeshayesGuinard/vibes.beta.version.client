@@ -1,11 +1,11 @@
-function Avatar() {
+function Avatar(props) {
 
-    return (
-      <div className="avatarBlock">
-        <img className="avatar" name="userPhoto" type="image" id="avatar" alt="Avatar" />
-        <h4>Pseudo</h4>
-      </div>
-    );
+  return (
+    <div className="avatarBlock">
+      <img className="avatar" name="userPhoto" type="image" src={props.userPhoto} alt="Avatar" />
+      <h4>{props.userName}</h4>
+    </div>
+  );
     
   }
     

@@ -1,14 +1,9 @@
 function SearchBar(props) {
-
-  function handleChangeSearch(event) {
-    const newVal = event.target.value
-    props.setSearch(newVal)
-  }
   
   return (
     <div>
-      <label>Barre de recherche</label>
-      <input value={props.search} type="text" onChange={handleChangeSearch} />
+      <h3>Rechercher un contact</h3>
+      <input type="text" value={props.search} onChange={props.onChange} placeholder={props.placeholder} />
     </div>
   );
 }
